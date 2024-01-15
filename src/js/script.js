@@ -169,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="basket__order-weight">
                                 <div class="basket__order-lb">${item.quantity} lb</div>
                                 <div class="basket__order-icons">
-                                    <div class="basket__order-change plus" data-id="${item.id}"><img src="icons/plus.svg" alt="plus_icon"></div>
-                                    <div class="basket__order-change minus" data-id="${item.id}"><img src="icons/minus.svg" alt="minus_icon"></div>
+                                    <div class="basket__order-change plus" data-id="${item.id}"><img src="src/icons/plus.svg" alt="plus_icon"></div>
+                                    <div class="basket__order-change minus" data-id="${item.id}"><img src="src/icons/minus.svg" alt="minus_icon"></div>
                                 </div>
                             </div>
                         </div>
