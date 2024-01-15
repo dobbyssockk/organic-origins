@@ -56,37 +56,37 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 1,
             name: 'Crunchy Cucumber',
-            img: 'img/cucumber-min.png',
+            img: 'src/img/cucumber-min.png',
             price: 1.99
         },
         {
             id: 2,
             name: 'Heirloom tomato',
-            img: 'img/tomato-min.png',
+            img: 'src/img/tomato-min.png',
             price: 5.99
         },
         {
             id: 3,
             name: 'Juicy Peach',
-            img: 'img/peach-min.png',
+            img: 'src/img/peach-min.png',
             price: 3.99
         },
         {
             id: 4,
             name: 'Organic ginger',
-            img: 'img/ginger-min.png',
+            img: 'src/img/ginger-min.png',
             price: 12.99
         },
         {
             id: 5,
             name: 'Tropical Pineapple',
-            img: 'img/pineapple-min.png',
+            img: 'src/img/pineapple-min.png',
             price: 2.49
         },
         {
             id: 6,
             name: 'Sweet onion',
-            img: 'img/onion-min.png',
+            img: 'src/img/onion-min.png',
             price: 2.99
         }
     ];
