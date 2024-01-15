@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Origins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700;1,6..72,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__title">Organic Origins</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__item"><a href="#" class="header__link">Shop</a></li>
+                    <li class="header__item"><a href="#" class="header__link">Newstand</a></li>
+                    <li class="header__item"><a href="#" class="header__link">Who we are</a></li>
+                    <li class="header__item"><a id="form-button" href="#" class="header__link">My profile</a></li>
+                </ul>
+                <button id="basket-button" class="btn">Basket(12)</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="homepage">
+        <div class="container main">
+            <h1 class="homepage__title">
+                We’re <span>farmers</span>, <span>purveyors</span>, and <span>eaters</span> of organically grown food.
+            </h1>
+            <button id="shop-button" class="btn btn_center">Browse our shop</button>
+
+            <div class="homepage__pictures">
+                <div class="homepage__item-vertical">
+                    <img src="img/greenery-min.png" alt="greenery">
+                </div>
+                <div class="homepage__item-horizontal">
+                    <img src="img/bread-min.png" alt="bread">
+                    <div class="homepage__pictures-descr"><span>Central California</span> — The person who grew these was
+                        located in Central California and hopefully very well compensated.
+                    </div>
+                </div>
+            </div>
+
+            <div class="homepage__beliefs">
+                <div class="homepage__beliefs-title">WHAT WE BELIEVE</div>
+                <p class="homepage__beliefs-descr">
+                    We believe in produce. Tasty produce. Produce like:
+                    <br> <br>
+                    Apples, oranges, limes, lemons, guavas, carrots, cucumbers, jicamas, cauliflowers, Brussels sprouts, shallots, Japanese eggplants, asparagus, artichokes, and Jerusalem artichokes, too. Radishes, broccoli, baby broccoli, broccolini, bok choy, scallions, ginger, cherries, raspberries, cilantro, parsley, dill.
+                    <br> <br>
+                    What are we forgetting?
+                    <br> <br>
+                    Oh! Onions, yams, avocados, lettuce, arugula (to some, “rocket”), Persian cucumbers, in addition to the aforementioned cucumbers, zucchinis, pumpkins, squash (also known as pumpkins in some cultures), sweet potatoes, regular potatoes, jackfruit, monk fruit. Fruits of our labor (this website), sorrel, pineapple, mango, gooseberries, blackberries, tomatoes, heirloom tomatoes, beets, chives, corn, endive, and escarole—which, we swear, even as vendors of organic produce, we might struggle to describe.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="basket" class="basket">
+        <div class="container">
+            <h2 class="title">Basket</h2>
+            <div class="subtitle" id="basket__subtitle"></div>
+
+            <div class="divider"></div>
+
+            <div class="basket__info">
+                <div class="basket__orders"></div>
+
+                <div class="summary">
+                    <div class="summary__title">Order summary</div>
+
+                    <div class="summary__info">
+                        <div class="summary__item">
+                            <div class="summary__subtitle">Subtotal</div>
+                            <div class="summary__price" id="subtotal-price"></div>
+                        </div>
+
+                        <div class="summary__item">
+                            <div class="summary__subtitle">Shipping</div>
+                            <div class="summary__price" id="shipping-price"></div>
+                        </div>
+
+                        <div class="summary__item">
+                            <div class="summary__subtitle">Tax</div>
+                            <div class="summary__price" id="tax-price"></div>
+                        </div>
+
+                        <div class="summary__item">
+                            <div class="summary__total">Total</div>
+                            <div class="summary__total" id="total-price"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn_flex" id="payment">
+                        <span class="button_text">Continue to payment</span>
+                        <img src="icons/button_icon.png" alt="button_icon" class="button_icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produce" class="produce">
+        <div class="container">
+            <h2 class="title">Produce</h2>
+            <div class="subtitle"><span>Fresh</span> —  August 21, 2023</div>
+
+            <div class="divider"></div>
+
+            <div class="produce__wrapper"></div>
+        </div>
+    </section>
+
+    <div class="overlay">
+        <div class="form-container" id="login">
+            <p class="form__title">Welcome back</p>
+            <form action="" class="form">
+                <input type="email" name="email" class="form__input" placeholder="Your E-mail" required>
+                <input type="password" name="password" class="form__input" placeholder="Your password" required>
+                <a href="#" class="form__link">Forgot password?</a>
+                <button class="btn">Log in</button>
+                <p>Don't have an account? <a href="#" class="form__link form__link_green" id="signup-link">Sign up</a></p>
+            </form>
+        </div>
+        <div class="form-container" id="register">
+            <p class="form__title">Create an account</p>
+            <form action="#" class="form">
+                <input type="email" name="email" class="form__input" placeholder="Your E-mail" required>
+                <input type="password" name="password" class="form__input" placeholder="Your password" required>
+                <input type="password" name="password" class="form__input" placeholder="Confirm password" required>
+                <div class="flex-items">
+                    <input type="checkbox" id="terms-checkbox" required>
+                    <label for="terms-checkbox" class="form__terms">I accept the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button class="btn">Sign up</button>
+                <p>Have an account? <a href="#" class="form__link form__link_green" id="login-link">Login here!</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/wow.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+.homepage {
+    margin-top: 111px;
+}
+
+.main {
+    padding-top: 112px;
+}
+
+.homepage__title {
+    color: black;
+    font-size: 64px;
+    font-family: Newsreader, serif;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.homepage__title span {
+    font-style: italic;
+}
+
+.homepage__pictures {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.homepage__item-vertical {
+    margin-left: 30px;
+}
+
+.homepage__item-horizontal {
+    margin: 0 auto 0 60px;
+}
+
+.homepage__item-vertical img, .homepage__item-horizontal img {
+    width: 100%;
+}
+
+.homepage__pictures-descr {
+    color: black;
+    font-size: 14px;
+    font-family: Inter, serif;
+    font-weight: 300;
+}
+
+.homepage__pictures-descr span {
+    font-weight: 500;
+}
+
+.homepage__beliefs {
+    margin-top: 156px;
+    display: flex;
+    flex-direction: row;
+}
+
+.homepage__beliefs-title {
+    max-width: 181px;
+    margin-right: 32px;
+    margin-top: 8px;
+    color: black;
+    font-size: 14px;
+    font-family: Inter, serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.56px;
+}
+
+.homepage__beliefs-descr {
+    max-width: 822px;
+    color: black;
+    font-size: 20px;
+    font-family: Inter, serif;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0;
+}

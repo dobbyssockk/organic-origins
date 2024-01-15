@@ -1,0 +1,35 @@
+.btn {
+    color: white;
+    padding: 13px 23px;
+    font-size: 16px;
+    line-height: 21px;
+    font-family: Inter, serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background-color: #426B1F;
+}
+
+.btn:hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+.btn:active {
+    opacity: .7;
+}
+
+.btn_center {
+    padding: 17px 32px;
+    margin: 0 auto 156px;
+    display: block;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.btn_flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

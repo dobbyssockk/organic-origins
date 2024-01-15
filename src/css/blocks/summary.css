@@ -1,0 +1,39 @@
+.summary {
+    min-width: 395px;
+    height: 318px;
+    padding: 24px;
+    background-color: #FAFAF5;
+    border: 1px solid #E6E6E6;
+    border-radius: 20px;
+}
+
+.summary__title {
+    color: black;
+    font-size: 20px;
+    font-family: Inter, serif;
+    font-weight: 600;
+}
+
+.summary__info {
+    margin: 32px 0 32px 0;
+}
+
+.summary__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary__subtitle, .summary__price {
+    color: black;
+    font-size: 16px;
+    font-family: Inter, serif;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.summary__total {
+    color: black;
+    font-size: 16px;
+    font-family: Inter, serif;
+    font-weight: 600;
+}
