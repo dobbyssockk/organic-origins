@@ -8,10 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
         })
     })
-
     const basketString = localStorage.getItem('basket');
     let basket = [];
-    if (basket) {
+    if (basketString) {
         const basketParsed = JSON.parse(basketString);
         basket = basketParsed;
     }
@@ -144,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderBasket() {
         // Rendering the cart subtitle
         const subtitle = document.getElementById('basket__subtitle');
+        console.log(basket.length)
         subtitle.textContent = `${basket.length} items`
 
         // Rendering the cart button
