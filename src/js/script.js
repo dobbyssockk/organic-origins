@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    const basketString = localStorage.getItem('basket');
+    let basket = [];
+    if (basket) {
+        const basketParsed = JSON.parse(basketString);
+        basket = basketParsed;
+    }
+
     // Header menu background
     const menu = document.querySelector('.header');
     window.addEventListener('scroll', () => {
@@ -26,11 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.header__nav');
     // const navItem = document.querySelector('.header__list');
     hamburger.addEventListener('click', () => {
-        if (nav.classList.contains('active')) {
-            nav.classList.remove('active');
-        } else {
-            nav.classList.add('active');
-        }
+        nav.classList.toggle('active');
     })
 
     // Scroll to basket
@@ -92,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     // Adding products to basket
-    const basket = [];
     function addToBasket(product) {
         const existingItem = basket.find(item => {
             return item.id === product.id;
@@ -103,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             basket.push({...product, quantity: 1});
         }
+
+        localStorage.setItem('basket', JSON.stringify(basket));
         renderBasket();
     }
 
@@ -183,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Changing the quantity
                 document.querySelector(`.plus[data-id="${item.id}"]`).addEventListener('click', () => {
                     item.quantity += 1;
+                    localStorage.setItem('basket', JSON.stringify(basket));
                     renderBasket();
                 });
 
@@ -192,10 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         const index = basket.findIndex(el => {
                             return el.id === item.id;
                         })
-                        basket.splice(index, 1);
+                        basket.splice(index, 1)
+                        localStorage.setItem('basket', JSON.stringify(basket));
                         renderBasket();
                     } else {
                         item.quantity -= 1;
+                        localStorage.setItem('basket', JSON.stringify(basket));
                         renderBasket();
                     }
                 });
