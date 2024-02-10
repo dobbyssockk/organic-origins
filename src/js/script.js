@@ -2,21 +2,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM events
-    const links = document.querySelectorAll('a');
-    const menu = document.querySelector('.header');
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('.header__nav');
-    const basketButton = document.getElementById('basket-button');
-    const basketEl = document.getElementById('basket');
-    const shopButton = document.getElementById('shop-button');
-    const shopEl = document.getElementById('produce');
-    const formButton = document.getElementById('form-button');
-    const overlay = document.querySelector('.overlay');
-    const loginForm = document.getElementById('login');
-    const registerForm = document.getElementById('register');
-    const paymentButton = document.getElementById('payment');
-    const loginLink = document.getElementById("login-link");
-    const signUpLink = document.getElementById("signup-link");
+    const links = document.querySelectorAll('a'),
+          menu = document.querySelector('.header'),
+          hamburger = document.querySelector('.hamburger'),
+          nav = document.querySelector('.header__nav'),
+          basketButton = document.getElementById('basket-button'),
+          basketEl = document.getElementById('basket'),
+          shopButton = document.getElementById('shop-button'),
+          shopEl = document.getElementById('produce'),
+          formButton = document.getElementById('form-button'),
+          overlay = document.querySelector('.overlay'),
+          loginForm = document.getElementById('login'),
+          registerForm = document.getElementById('register'),
+          paymentButton = document.getElementById('payment'),
+          loginLink = document.getElementById("login-link"),
+          signUpLink = document.getElementById("signup-link");
 
     // Local storage handling for basket and products data
     const savedBasketString = localStorage.getItem('basket');
@@ -190,9 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Calculating the total sum
         const subtotalEl = document.getElementById('subtotal-price'),
-            shippingEl = document.getElementById('shipping-price'),
-            taxEl = document.getElementById('tax-price'),
-            totalEl = document.getElementById('total-price');
+              shippingEl = document.getElementById('shipping-price'),
+              taxEl = document.getElementById('tax-price'),
+              totalEl = document.getElementById('total-price');
 
         const SHIPPING = 5;
         const TAX = 0.1;
