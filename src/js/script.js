@@ -1,59 +1,26 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Prevent default behavior <a> tags
+    // DOM events
     const links = document.querySelectorAll('a');
-    links.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-        })
-    })
-    const basketString = localStorage.getItem('basket');
-    let basket = [];
-    if (basketString) {
-        const basketParsed = JSON.parse(basketString);
-        basket = basketParsed;
-    }
-
-    // Header menu background
     const menu = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10 && screen.width > 576) {
-            menu.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            menu.style.boxShadow = '0px 0px 35px -15px rgba(0,0,0,0.75)';
-        } else {
-            menu.style.backgroundColor = 'transparent';
-            menu.style.boxShadow = 'none';
-        }
-    });
-
-    //Hamburger
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('.header__nav');
-    // const navItem = document.querySelector('.header__list');
-    hamburger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    })
-
-    // Scroll to basket
     const basketButton = document.getElementById('basket-button');
-    basketButton.addEventListener('click', () => {
-        const basket = document.getElementById('basket');
-        basket.scrollIntoView({
-            behavior: "smooth"
-        });
-    });
-
-    // Scroll to shop
+    const basketEl = document.getElementById('basket');
     const shopButton = document.getElementById('shop-button');
-    shopButton.addEventListener('click', () => {
-        const shop = document.getElementById('produce');
-        shop.scrollIntoView({
-            behavior: "smooth"
-        });
-    });
+    const shopEl = document.getElementById('produce');
+    const formButton = document.getElementById('form-button');
+    const overlay = document.querySelector('.overlay');
+    const loginForm = document.getElementById('login');
+    const registerForm = document.getElementById('register');
+    const paymentButton = document.getElementById('payment');
+    const loginLink = document.getElementById("login-link");
+    const signUpLink = document.getElementById("signup-link");
 
-    // Array with products
+    // Local storage handling for basket and products data
+    const savedBasketString = localStorage.getItem('basket');
+    let basket = savedBasketString ? JSON.parse(savedBasketString) : [];
     const produceItems = [
         {
             id: 1,
@@ -93,6 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    // Functions
+    // Save basket array in local storage
+    function saveBasket() {
+        localStorage.setItem('basket', JSON.stringify(basket));
+    }
+    // Prevent default link behavior
+    function preventDefaultForLinks() {
+        links.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        });
+    }
+
     // Adding products to basket
     function addToBasket(product) {
         const existingItem = basket.find(item => {
@@ -105,11 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
             basket.push({...product, quantity: 1});
         }
 
-        localStorage.setItem('basket', JSON.stringify(basket));
+        saveBasket();
         renderBasket();
     }
 
-    // Rendering products in section produce
+    // Rendering products on the page
     function renderProducts() {
         const container = document.querySelector('.produce__wrapper');
 
@@ -137,13 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    renderProducts();
-
-    // Rendering orders in basket
+    // Rendering basket and handling quantity changes
     function renderBasket() {
         // Rendering the cart subtitle
         const subtitle = document.getElementById('basket__subtitle');
-        console.log(basket.length)
         subtitle.textContent = `${basket.length} items`
 
         // Rendering the cart button
@@ -155,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (basket.length === 0) {
             container.innerHTML = `
                 <p class="basket__empty">There are no items yet...</p>
-            `
+            `;
         } else {
             container.innerHTML = '';
             basket.forEach(item => {
@@ -187,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Changing the quantity
                 document.querySelector(`.plus[data-id="${item.id}"]`).addEventListener('click', () => {
                     item.quantity += 1;
-                    localStorage.setItem('basket', JSON.stringify(basket));
+                    saveBasket();
                     renderBasket();
                 });
 
@@ -198,11 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             return el.id === item.id;
                         })
                         basket.splice(index, 1)
-                        localStorage.setItem('basket', JSON.stringify(basket));
+                        saveBasket();
                         renderBasket();
                     } else {
                         item.quantity -= 1;
-                        localStorage.setItem('basket', JSON.stringify(basket));
+                        saveBasket();
                         renderBasket();
                     }
                 });
@@ -235,48 +213,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    renderBasket();
-
-    // Show form window
-    const formButton = document.getElementById('form-button');
-    const overlay = document.querySelector('.overlay');
-    const loginForm = document.getElementById('login');
-    const registerForm = document.getElementById('register');
-    const paymentButton = document.getElementById('payment');
-    formButton.addEventListener('click', () => {
-       overlay.style.display = 'block';
-       loginForm.style.display = 'block';
-    });
-
-    paymentButton.addEventListener('click', () => {
-        overlay.style.display = 'block';
-        loginForm.style.display = 'block';
-    });
-
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            overlay.style.display = 'none';
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'none';
+    // Dynamic header background change on scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10 && screen.width > 576) {
+            menu.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            menu.style.boxShadow = '0px 0px 35px -15px rgba(0,0,0,0.75)';
+        } else {
+            menu.style.backgroundColor = 'transparent';
+            menu.style.boxShadow = 'none';
         }
-    })
-
-    const loginLink = document.getElementById("login-link");
-    loginLink.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        registerForm.style.display = "none";
-        loginForm.style.display = "block";
     });
 
-    const signUpLink = document.getElementById("signup-link");
-    signUpLink.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
+    // Event listeners
+    // Hamburger menu toggle
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
     });
 
-    // For animate.css
-    new WOW().init();
+    // Smooth scrolling to sections
+    basketButton.addEventListener('click', () => {
+        basketEl.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+    shopButton.addEventListener('click', () => {
+        shopEl.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+
+    // Form display controls
+    // Function to control the visibility of forms and overlay
+    function toggleForms({ showOverlay = false, showLogin = false, showRegister = false }) {
+        overlay.style.display = showOverlay ? 'block' : 'none'; // Show or hide the overlay
+        loginForm.style.display = showLogin ? 'block' : 'none'; // Show or hide the login form
+        registerForm.style.display = showRegister ? 'block' : 'none'; // Show or hide the register form
+    }
+
+    // Event listener for button clicks that should show the login form
+    formButton.addEventListener('click', () =>
+        toggleForms({ showOverlay: true, showLogin: true }));
+    paymentButton.addEventListener('click', () =>
+        toggleForms({ showOverlay: true, showLogin: true }));
+
+    // Event listener for clicking on the overlay and hiding all
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) toggleForms({});
+    });
+
+    // Event listeners for the login and sign-up links
+    loginLink.addEventListener("click", () =>
+        toggleForms({ showOverlay: true, showLogin: true }));
+    signUpLink.addEventListener("click", () =>
+        toggleForms({ showOverlay: true, showRegister: true }));
+
+    // Initialization
+    preventDefaultForLinks();
+    renderProducts();
+    renderBasket();
+    new WOW().init(); // for animate.css library
 });
