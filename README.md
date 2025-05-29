@@ -4,6 +4,8 @@ A concept landing page for an organic grocery brand. Includes animated interacti
 
 ![Preview](./screenshots/preview.png)
 
+**🔗 Live Demo**: [Organic Origins](https://dobbyssockk.github.io/organic-origins/)
+
 ---
 
 ## 🌿 Project Overview
